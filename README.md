@@ -5,7 +5,7 @@
 ## 天气查询接口 - openWeather
 > openWeather 的天气查询接口与目标UI比较契合，国内的天气查询接口普遍只能查询近3天的预报
 
-[接口API](https://openweathermap.org/api/one-call-api)： 能够查询当前和预报的天气
+[天气查询接口API](https://openweathermap.org/api/one-call-api)： 能够查询当前和预报的天气
 
 ### 天气状态对应表 - 未来天气
 |  天气状况ID   | 对应类型  |
@@ -38,4 +38,3 @@ https://api.openweathermap.org/data/2.5/onecall?lat=30.2937&lon=120.1614&lang=zh
 
 
 
-- 没有苹果手机，ios的兼容性未测试
