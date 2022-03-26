@@ -1,0 +1,159 @@
+.pageDetail {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.current{
+  .top{
+    display: flex;
+  }
+  .left{
+    margin-left: 22px;
+    flex-basis: 40%;
+  }
+  .right{
+    flex-basis: 60%;
+    img{
+      max-width: 100%;
+    }
+  }
+  .back{
+    height: 80px;
+    margin-top: 30px;
+    img{
+      width: 20px;
+    }
+  }
+  .city{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #332821;
+  }
+  .temp{
+    margin-top: 30px;
+    font-size: 96px;
+    line-height: 1;
+    color: #332821;
+    &::after{
+      content: '°C';
+      display: inline-block;
+      font-size: 24px;
+      vertical-align: top;
+    }
+  }
+  .other{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    div{
+      padding: 5px 10px;
+      border-radius: 20px;
+      &::before{
+        content: ' ';
+        display: inline-block;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+        background: url(https://m.hellobike.com/resource/helloyun/09834/jgmhh_noun-rain-color.png?x-oss-process=image/quality,q_80) no-repeat center center;
+        background-size: 24px;
+        vertical-align: bottom;
+      }
+    }
+    .rain{
+      background: rgba(101, 142, 217, 0.1);
+    }
+    .humidity{
+      background: rgba(216, 97, 145, 0.1);
+      &::before{
+        background-image: url(https://m.hellobike.com/resource/helloyun/09834/pMxQx_noun-humidity-color.png?x-oss-process=image/quality,q_80);
+      }
+    }
+    .wind_speed{
+      background: rgba(94, 79, 193, 0.1);
+      &::before{
+        background-image: url(https://m.hellobike.com/resource/helloyun/09834/7Elof_noun-wind-color.png?x-oss-process=image/quality,q_80);
+      }
+    }
+  }
+}
+.today{
+  .font{
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #332821;
+  }
+  .hourList{
+    display: flex;
+    overflow-x: scroll;
+    height: 100px;
+    padding-left: 30px;
+  }
+  .hurtItem{
+    flex:0 0 90px;
+    padding-top: 10px;
+    min-width: 90px;
+    margin-right: 30px;
+    text-align: center;
+  }
+  .hourTemp{
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 43px;
+    &::after{
+      content: '°C';
+      display: inline-block;
+      font-size: 13px;
+      vertical-align: text-top;
+      color: #332821;
+    }
+  }
+  .time{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(51, 40, 33, 0.5);
+  }
+}
+.day{
+  margin: 10px 20px 20px;
+  .dayItem{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    line-height: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #332821;
+    .max{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+    }
+    .min{
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: rgba(51, 40, 33, 0.5);
+    }
+    .min, .max{
+      &::after{
+        content: '°C';
+        display: inline-block;
+        font-size: 10px;
+        vertical-align: text-top;
+      }
+    }
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

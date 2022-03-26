@@ -1,0 +1,175 @@
+.pageIndex {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
+  .body {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  // .logo {
+  //   position: absolute;
+  //   width: 60px;
+  //   height: 60px;
+  //   left: 16px;
+  //   top: 49px;
+  // }
+  .logo {
+    position: relative;
+    margin: 49px 16px;
+    width: 60px;
+    height: 60px;
+  }
+  .container{
+    position: relative;
+    margin: 10% 16%;
+    padding-bottom: 20px;
+    // padding: 100px 0;
+    background: #FBFBFB;
+    border-radius: 30px;
+  }
+  .box{
+    transform: translateY(-50%);
+  }
+  .weatherPic{
+    // position: absolute;
+    width: 100%;
+    min-height: 200px;
+  }
+  .city{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .info{
+    // float: left;
+  }
+  .left{
+    float: left;
+    padding: 30px 0 0 30px;
+  }
+  .right{
+    float: right;
+    padding-top: 30px;
+    padding-right: 30px;
+    p{
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    span{
+      display: inline-block;
+      padding: 0 20px;
+      background: rgba(212, 66, 111, 0.5);
+      border-radius: 20px;
+    }
+    p:last-of-type span{
+      background: rgba(106, 117, 186, 0.5);
+    }
+  }
+  .temp{
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 45px;
+    &::after{
+      content: "°C";
+      display: inline-block;
+      font-size: 14px;
+      vertical-align: top;
+      line-height: 1;
+    }
+  }
+  .time{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(51, 40, 33, 0.5);
+  }
+  .detail{
+    position: absolute;
+    bottom: -30px;
+    left: 15%;
+    margin: 0 auto;
+    width: 70%;
+    height: 50px;
+    line-height: 50px;;
+    background: #5E4FC1;
+    color: #FFFFFF;
+    border-radius: 18px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+  }
+  .footer{
+    margin: 0 25%;
+    transform: translateY(-40px);
+    p{
+      display: flex;
+      margin-bottom: 10px;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: #FFFFFF;
+      span:first-of-type{
+        &::before{
+          content: ' ';
+          display: inline-block;
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          background: url(https://m.hellobike.com/resource/helloyun/09834/WBK2S_noun-rain.png?x-oss-process=image/quality,q_80) no-repeat center center;
+          background-size: 24px;
+          vertical-align: bottom;
+        }
+      }
+    }
+    .rain{
+      span:first-of-type{
+        &::before{
+          background-image: url(https://m.hellobike.com/resource/helloyun/09834/WBK2S_noun-rain.png?x-oss-process=image/quality,q_80);
+        }
+      }
+      span:last-of-type{
+        &::after{
+          content: '%';
+          display: inline-block;
+        }
+      }
+    }
+    .humidity{
+      span:first-of-type{
+        &::before{
+          background-image: url(https://m.hellobike.com/resource/helloyun/09834/4HWbR_noun-humidity.png?x-oss-process=image/quality,q_80);
+        }
+      }
+      span:last-of-type{
+        &::after{
+          content: '%';
+          display: inline-block;
+        }
+      }
+    }
+    .wind_speed{
+      span:first-of-type{
+        &::before{
+          background-image: url(https://m.hellobike.com/resource/helloyun/09834/y3yQ2_noun-wind.png?x-oss-process=image/quality,q_80);
+        }
+      }
+      span:last-of-type{
+        &::after{
+          content: 'm/s';
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.clear{clear:both;}
