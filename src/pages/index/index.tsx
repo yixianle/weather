@@ -1,28 +1,20 @@
 import { history } from 'umi';
-import {
-  useCallback, useEffect, useMemo, useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { getWeather, IWeather, ICurrentWeather } from "@/api/index";
 import { getWeatherPicById, IWeatherPic } from "@/api/weatherMap";
 import moment from "moment";
-import useFetch from '@/hooks/useFetch';
 import styles from './index.less';
 import logo from "@/img/logo.png";
 
 export default function IndexPage() {
   const [weatherInfo, setWeatherInfo] = useState<IWeather|undefined>()
   useEffect(()=>{
-    getWeather({lat: 30.2937, lon: 120.1614}).then((res)=>{
+    getWeather().then((res)=>{
       setWeatherInfo(res);
     })
-  },[])
-  // useEffect(()=>{
-  //   getWeather({lat: 30.2937, lon: 120.1614}).then((res)=>{
-  //     setWeatherInfo(res);
-  //   })
-  // },[])
+  },[]);
+  const location = weatherInfo && weatherInfo.location;
   const current = weatherInfo && weatherInfo.current;
-  // const description = current?.weather?.[0]?.description
   const list = current?.weather?.[0]?.description?.split('，');
   
   moment.locale('zh-cn');
@@ -39,15 +31,15 @@ export default function IndexPage() {
   
   return (
     <div className={styles.pageIndex}>
+      <img className={styles.logo} src={logo} alt="logo" />
       <div className={styles.body}>
-        <img className={styles.logo} src={logo} alt="logo" />
         <div className={styles.container}>
           <div className={styles.box}>
             <img className={styles.weatherPic} src={(weatherPic as IWeatherPic)?.current} />
-            <div className={styles.city}>杭州市, 浙江省</div>
+            <div className={styles.city}>{location?.city}, {location?.province}</div>
             <div className={styles.info}>
               <div className={styles.left}>
-                <div className={styles.temp}>{Math.floor(current?.temp)}</div>
+                <div className={styles.temp}>{Math.floor(current?.temp || 0)}</div>
                 <div className={styles.time}>{dddd}, {ha}</div>
               </div>
               <div className={styles.right}>
@@ -61,15 +53,15 @@ export default function IndexPage() {
         <div className={styles.footer}>
         {(current?.rain)?<p className={styles.rain}>
             <span>降水量</span>
-            <span>{current.rain['1h']}</span>
+            <span>{current.rain['1h']} </span>
           </p> :''}
           <p className={styles.humidity}>
             <span>湿度</span>
-            <span>{current?.humidity}</span>
+            <span>{current?.humidity} </span>
           </p>
           <p className={styles.wind_speed}>
-            <span>风速</span>
-            <span>{current?.wind_speed}</span>
+            <span>风速 </span>
+            <span>{Math.floor((current?.wind_speed || 0) * 3.6)} </span>
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { request } from 'umi';
 import { weather } from "./mock";
 
 export interface IWeather {
+  location: ILocation;
   current: ICurrentWeather;
   hourly: ICurrentWeather[];
   daily: ICurrentWeather[];
@@ -29,28 +30,90 @@ export interface ICoordParams {
   lon: number;
 }
 
+export interface ILocation {
+  lat: number;
+  lon: number;
+  province: string;
+  city: string;
+}
+
 export const getWeatherBak = (
   params: ICoordParams,
 ): Promise<IWeather> => {
   if (navigator.geolocation){
-    navigator.geolocation.watchPosition((data)=>{
-      console.log(data, 111);
-    });
+    
   }
   return Promise.resolve(weather);
 }
 
-export const getWeather = (
-  params: ICoordParams,
-): Promise<IWeather> => {
-  return request('https://api.openweathermap.org/data/2.5/onecall', {
+// 使用h5 api 获取经纬度信息
+const getCoord = () => new Promise<ILocation>((resolve, reject) => {
+  // 默认城市信息
+  const location = {
+    lat: 30.2937,
+    lon: 120.1614,
+    province: '浙江省',
+    city: '杭州市'
+  }
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition((position)=>{
+      console.log(position); 
+      const coords:ICoordParams = {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude
+      }
+      location.lat = position.coords.latitude;
+      location.lon = position.coords.longitude;
+      resolve(location);
+    },(error)=>{
+      resolve(location);
+    });
+  }else{
+    resolve(location);
+  }
+})
+
+// 获取城市信息
+const getLocation = (): Promise<ILocation> => {
+  return request('https://restapi.amap.com/v3/ip', {
     method: 'GET',
     params: {
-      ...params,
+      // ip: '114.247.50.2',  // 测试ip
+      key: '378374d410d86b2692c61fd42d0380b2'
+    }
+  }).then(async res=>{
+    let {rectangle,province,city} = res;
+    let lat=0,lon=0;
+    if(typeof rectangle ==='string' && rectangle.length >0){
+      const coords = rectangle.split(';').map((item:string): string[] =>{
+        return item.split(',');
+      });
+      // 经纬度取城市范围中间值
+      lat = (Number(coords[0][1])+Number(coords[1][1]))/2;
+      lon = (Number(coords[0][0])-0+Number(coords[1][0]))/2;
+    }else{
+      const location = await getCoord();
+      return location;
+    }
+    console.log(lat,lon,province,city, 3333);
+    return {lat,lon,province,city};
+  })
+};
+
+// 获取天气信息
+export const getWeather = async(): Promise<IWeather> => {
+  const location = await getLocation();
+  const res = await request('https://api.openweathermap.org/data/2.5/onecall', {
+    method: 'GET',
+    params: {
+      lat: location.lat,
+      lon: location.lon,
       lang: 'zh_cn',
       appid: 'b48f4f15021c2a60774fa4a103ddfdb2',
       exclude: 'minutely,alerts',
       units: 'metric'
     }
   })
+  res.location = location;
+  return res;
 };

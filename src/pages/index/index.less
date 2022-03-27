@@ -1,16 +1,20 @@
 .pageIndex {
-  font-family: 'Alegreya Sans';
-  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Alegreya Sans';
+  font-style: normal;
   background: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
   .body {
     position: relative;
-    max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     height: 100%;
+    width: 100%;
+    max-width: 418px;
   }
   // .logo {
   //   position: absolute;
@@ -105,6 +109,7 @@
     font-weight: 700;
     font-size: 14px;
     text-align: center;
+    cursor: pointer;
   }
   .footer{
     margin: 0 25%;
@@ -164,7 +169,7 @@
       }
       span:last-of-type{
         &::after{
-          content: 'm/s';
+          content: 'km/h';
           display: inline-block;
         }
       }
