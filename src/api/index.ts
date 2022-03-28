@@ -80,7 +80,8 @@ const getLocation = (): Promise<ILocation> => {
     params: {
       // ip: '114.247.50.2',  // 测试ip
       key: '378374d410d86b2692c61fd42d0380b2'
-    }
+    },
+    skipErrorHandler: true,
   }).then(async res=>{
     let {rectangle,province,city} = res;
     let lat=0,lon=0;
@@ -119,7 +120,8 @@ export const getWeather = async(): Promise<IWeather> => {
       appid: 'b48f4f15021c2a60774fa4a103ddfdb2',
       exclude: 'minutely,alerts',
       units: 'metric'
-    }
+    },
+    skipErrorHandler: true,
   }).catch(function(error) {
     // 处理 getJSON 和 前一个回调函数运行时发生的错误
     console.log('发生错误！', error);

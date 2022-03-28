@@ -9,9 +9,12 @@ import styles from './index.less';
 
 export default function DetailPage() {
   const [weatherInfo, setWeatherInfo] = useState<IWeather|undefined>()
+  const [loading, setLoading] = useState<Boolean>(false)
   useEffect(()=>{
+    setLoading(true);
     getWeather().then((res)=>{
       setWeatherInfo(res);
+      setLoading(false);
     })
   },[])
   const location = weatherInfo && weatherInfo.location;
@@ -53,6 +56,7 @@ export default function DetailPage() {
   const weatherPic = weatherId && getWeatherPicById(weatherId);
   return (
     <div className={styles.pageDetail}>
+      {loading ? (<div className={styles.loading}><img src="../../img/loading.png" alt="loading" /></div>):''}
       <div className={styles.current}>
         <div className={styles.top}>
           <div className={styles.left}>
