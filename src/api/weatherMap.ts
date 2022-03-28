@@ -10,39 +10,40 @@ export interface IWeatherPic {
 export const WeatherPic = {
   // 晴天
   sun: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/3xw-i_Sun_cloud_corrent.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/MbRDZ_Sun.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/Y5UYY_Sun_night.png?x-oss-process=image/quality,q_80'
+    current: '/img/Sun_cloud_corrent.png',
+    forecast: '/img/Sun.png',
+    forecastNight: '/img/Sun_night.png'
   },
   // 多云
   cloud: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/3xw-i_Sun_cloud_corrent.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/AnOC7_Clouds.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/Mbpr8_Clouds_night.png?x-oss-process=image/quality,q_80'
+    current: '/img/Sun_cloud_corrent.png',
+    forecast: '/img/Clouds.png',
+    forecastNight: '/img/Clouds_night.png'
   },
   // 大风
   wind: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/3xw-i_Sun_cloud_corrent.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/AET3Z_Wind.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/U2EN2_Wind_night.png?x-oss-process=image/quality,q_80'
+    current1: '/img/Sun_cloud_corrent.png',
+    current: '/img/Sun_cloud_corrent.png',
+    forecast: '/img/Wind.png',
+    forecastNight: '/img/Wind_night.png'
   },
   // 雨天
   rain: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/sZTAN_Rain_current.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/yLfKU_Rain.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/wewY8_Rain_night.png?x-oss-process=image/quality,q_80'
+    current: '/img/Rain_current.png',
+    forecast: '/img/Rain.png',
+    forecastNight: '/img/Rain_night.png'
   },
   // 雪天
   snow: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/ob8aO_Snow_current.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/6OS8v_Snow.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/25wkB_Snow_night.png?x-oss-process=image/quality,q_80'
+    current: '/img/Snow_current.png',
+    forecast: '/img/Snow.png',
+    forecastNight: '/img/Snow_night.png'
   },
   // 打雷
   storm: {
-    current: 'https://m.hellobike.com/resource/helloyun/09834/YK4Pj_Storm_current.png?x-oss-process=image/quality,q_80',
-    forecast: 'https://m.hellobike.com/resource/helloyun/09834/I6E_l_Storm.png?x-oss-process=image/quality,q_80',
-    forecastNight: 'https://m.hellobike.com/resource/helloyun/09834/A5oxP_Storm_night.png?x-oss-process=image/quality,q_80'
+    current: '/img/Storm_current.png',
+    forecast: '/img/Storm.png',
+    forecastNight: '/img/Storm_night.png'
   },
 }
 

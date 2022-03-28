@@ -93,11 +93,18 @@ const getLocation = (): Promise<ILocation> => {
       lon = (Number(coords[0][0])-0+Number(coords[1][0]))/2;
     }else{
       const location = await getCoord();
+      localStorage.setItem('location', JSON.stringify(location));
       return location;
     }
     console.log(lat,lon,province,city, 3333);
+    localStorage.setItem('location', JSON.stringify({lat,lon,province,city}));
     return {lat,lon,province,city};
-  })
+  }).catch(function(error) {
+    // 处理 getJSON 和 前一个回调函数运行时发生的错误
+    console.log('发生错误！', error);
+    var local = localStorage.getItem("location");
+    return local && JSON.parse(local);
+  });
 };
 
 // 获取天气信息
@@ -113,7 +120,15 @@ export const getWeather = async(): Promise<IWeather> => {
       exclude: 'minutely,alerts',
       units: 'metric'
     }
-  })
+  }).catch(function(error) {
+    // 处理 getJSON 和 前一个回调函数运行时发生的错误
+    console.log('发生错误！', error);
+    var weather = localStorage.getItem("weather");
+    return weather && JSON.parse(weather);
+  });
+  console.log(res, location, 999);
+  
   res.location = location;
+  localStorage.setItem('weather', JSON.stringify(res));
   return res;
 };

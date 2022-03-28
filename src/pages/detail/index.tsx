@@ -57,7 +57,7 @@ export default function DetailPage() {
         <div className={styles.top}>
           <div className={styles.left}>
             <div className={styles.back} onClick={()=> history.goBack()}>
-              <img src="https://m.hellobike.com/resource/helloyun/09834/bLftP_Vector.png?x-oss-process=image/quality,q_80" alt="返回" />
+              <img src="../../img/Vector.png" alt="返回" />
             </div>
             <div className={styles.city}>{location?.city}，<br/>{location?.province}</div>
             <div className={styles.temp}>{ Math.floor(current?.temp || 0) }</div>

@@ -9,5 +9,15 @@ export default defineConfig({
     { path: '/detail', component: '@/pages/detail' },
   ],
   fastRefresh: {},
-  outputPath: '/docs'
+  outputPath: '/docs',
+  copy: [
+    {
+      from: 'src/pages/index.appcache',
+      to: 'index.appcache',
+    },
+    {
+      from: 'src/img/',
+      to: 'img/',
+    }
+  ],
 });
