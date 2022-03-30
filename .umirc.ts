@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  base: '/weather/',
   nodeModulesTransform: {
     type: 'none',
   },
@@ -12,12 +13,12 @@ export default defineConfig({
   outputPath: '/docs',
   copy: [
     {
-      from: 'src/pages/index.appcache',
-      to: 'index.appcache',
-    },
-    {
       from: 'src/img/',
       to: 'img/',
-    }
+    },
+    {
+      from: 'src/sw.js',
+      to: 'sw.js',
+    },
   ],
 });

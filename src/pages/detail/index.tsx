@@ -8,7 +8,7 @@ import { Chart, Axis, Area, Line, Tooltip } from '@antv/f2';
 import styles from './index.less';
 
 export default function DetailPage() {
-  const [weatherInfo, setWeatherInfo] = useState<IWeather|undefined>()
+  const [weatherInfo, setWeatherInfo] = useState<IWeather>()
   const [loading, setLoading] = useState<Boolean>(false)
   useEffect(()=>{
     setLoading(true);

@@ -7,7 +7,7 @@ import styles from './index.less';
 import logo from "@/img/logo.png";
 
 export default function IndexPage() {
-  const [weatherInfo, setWeatherInfo] = useState<IWeather|undefined>()
+  const [weatherInfo, setWeatherInfo] = useState<IWeather>()
   const [loading, setLoading] = useState<Boolean>(false)
   useEffect(()=>{
     setLoading(true);
